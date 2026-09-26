@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="NiNA">
+  <rect width="128" height="128" rx="64" fill="#0f766e"/>
+  <circle cx="64" cy="50" r="22" fill="#f8fafc"/>
+  <path d="M28 112c6-24 20-36 36-36s30 12 36 36" fill="#f8fafc"/>
+  <text x="64" y="58" text-anchor="middle" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#0f766e">N</text>
+</svg>
