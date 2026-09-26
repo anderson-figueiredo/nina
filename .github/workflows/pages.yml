@@ -1,0 +1,41 @@
+name: Publicar GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "assets/**"
+      - "index.html"
+      - "favicon.svg"
+      - ".nojekyll"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - name: Publicar arquivos estáticos
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A index.html assets favicon.svg .nojekyll
+          if git diff --cached --quiet; then
+            echo "Build já está publicado."
+          else
+            git commit -m "Publica o site estático da NiNA"
+            git push
+          fi
