@@ -17,3 +17,9 @@ Abra `http://localhost:5173`. Os atalhos acima do campo de mensagem disparam con
 npm test
 npm run build
 ```
+
+## GitHub Pages
+
+O endereço publicado é [https://anderson-figueiredo.github.io/nina/](https://anderson-figueiredo.github.io/nina/).
+
+O Pages deste repositório serve a branch `main` direto, sem um passo de build no servidor. O navegador não executa `src/main.tsx`, então a página ficava em branco. O `npm run build` gera o site estático na raiz (`index.html`, `assets/` e `favicon.svg`) com os arquivos em `/nina/`. O workflow `.github/workflows/pages.yml` republica esse build a cada push na `main`.
